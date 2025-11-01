@@ -82,6 +82,7 @@ double hit_the_ground()
  ****************************************************/
 int main()
 {
+	//just temporary variables to curb stub errors
 	float distance;
 	float time;
 
