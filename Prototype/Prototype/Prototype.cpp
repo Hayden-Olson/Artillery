@@ -54,7 +54,9 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	cout << "What is the angle of the howitzer where 0 is up? ";
+	cin >> angle;
+	cout << "Distance:     " << distance << "Hange Time:     " << time << endl;
 }
 
 
