@@ -202,8 +202,6 @@ double hit_the_ground()
  ****************************************************/
 int main()
 {
-	double posX = 0;
-	double posY = 0;
 	double time = 1;
 	double mass = 46.7;
 	double velocity = 827;
