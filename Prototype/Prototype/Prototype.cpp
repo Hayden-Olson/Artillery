@@ -1,5 +1,9 @@
 /****************************************************
  * Names: Hayden Olson & Mason Allen
+ * Project: Artillery Prototype
+ * Date: 6/12/2024
+ * Teacher: Brother Goddfrey
+ * Description: A simple artillery simulation prototype
  ****************************************************/
 
 #include <iostream>
@@ -43,6 +47,10 @@
  * HIT THE GROUND
  ****************************************************/
 
+
+/****************************************************
+ * MAIN
+ ****************************************************/
 
 int main()
 {
