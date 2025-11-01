@@ -14,7 +14,7 @@ using namespace std;
  ****************************************************/
 double inertia()
 {
-	for (i = 0; i < 21; i++)
+	for (int i = 0; i < 21; i++)
 	{
 		// Do nothing
 	}
@@ -82,9 +82,14 @@ double hit_the_ground()
  ****************************************************/
 int main()
 {
+	float distance;
+	float time;
+
+	
+	float angle;
 	cout << "What is the angle of the howitzer where 0 is up? ";
 	cin >> angle;
-	cout << "Distance:     " << distance << "Hange Time:     " << time << endl;
+	cout << "Distance:     " << distance << "Hang Time:     " << time << endl;
 }
 
 
