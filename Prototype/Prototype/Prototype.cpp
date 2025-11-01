@@ -14,6 +14,10 @@ using namespace std;
  ****************************************************/
 double inertia()
 {
+	for (i = 0; i < 21; i++)
+	{
+		// Do nothing
+	}
 	return 0.0;
 }
 
