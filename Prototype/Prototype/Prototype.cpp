@@ -209,6 +209,9 @@ int main()
 	//just temporary variables to curb stub errors
 	float distance;
 
+	//we need to still give the tables actual functionality for calculations, and implement linear interpolation.
+	//a lot of parts are here, but they need to actually do things still.
+
 
 	
 	inertia(acceleration(), drag(velocity), gravity());
