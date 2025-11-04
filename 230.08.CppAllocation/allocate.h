@@ -1,6 +1,6 @@
 /*************************************************************
  * 1. Name:
- *      -your name-
+ *      Mason Allen
  * 2. Assignment Name:
  *      Practice 08: Allocation
  * 3. Assignment Description:
