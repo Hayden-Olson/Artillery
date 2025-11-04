@@ -15,7 +15,10 @@
   * ALLOCATE ONE FLOAT
   ****************************/
 
+allocateOneFloat(float p)
+{
 
+}
 
 /****************************
  * ALLOCATE ARRAY of DOUBLEs
