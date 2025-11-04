@@ -1,6 +1,6 @@
 /*************************************************************
  * 1. Name:
- *      Mason Allen
+ *      Mason Allen & Hayden Olson
  * 2. Assignment Name:
  *      Practice 08: Allocation
  * 3. Assignment Description:
