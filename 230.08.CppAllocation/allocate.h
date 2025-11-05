@@ -25,7 +25,7 @@ float* allocateOneFloat(float number)
  * ALLOCATE ARRAY of DOUBLEs
  ****************************/
 
-float[]* allocateArrayDouble(int number)
+double* allocateArrayDouble(int number)
 {
 	if (number <= 0)
 	{
@@ -33,7 +33,7 @@ float[]* allocateArrayDouble(int number)
 	}
 	else
 	{
-		return new float[number];
+		return new double[number];
 	}
 }
 
@@ -41,7 +41,7 @@ float[]* allocateArrayDouble(int number)
  * DELETE ONE FLOAT
  ****************************/
 
-void deleteOneFloat(float number)
+void deleteOneFloat(float *number)
 {
 	if (number != nullptr)
 	{
@@ -54,7 +54,7 @@ void deleteOneFloat(float number)
  * DELETE ARRAY of DOUBLEs
  ****************************/
 
-void deleteArrayDouble(float[] number)
+void deleteArrayDouble(double *number)
 {
 	if (number != nullptr)
 	{
