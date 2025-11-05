@@ -6,9 +6,12 @@
  * 3. Assignment Description:
  *      Allocate an array and then use it
  * 4. What was the hardest part? Be as specific as possible.
- *      -a paragraph or two about how the assignment went for you-
+ *      -Figureing out how to do a reference to a pointer. I dont remember learning about that.
+		Spent an hour trying to solve the remaining test issues where the pointer was not 
+		equalling the address of nullptr. Still struggling using pointers in general, knowing 
+		how they work and how to use them.-
  * 5. How long did it take for you to complete the assignment?
- *      -total time in hours: reading the assignment, submitting, etc.
+ *      -3 hours
  **************************************************************/
 
  /****************************
