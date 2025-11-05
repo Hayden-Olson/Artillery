@@ -15,9 +15,10 @@
   * ALLOCATE ONE FLOAT
   ****************************/
 
-allocateOneFloat(float p)
+void allocateOneFloat(float number)
 {
-
+	float* p = new float(number);
+	return p;
 }
 
 /****************************
