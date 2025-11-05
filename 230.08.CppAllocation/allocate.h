@@ -15,7 +15,7 @@
   * ALLOCATE ONE FLOAT
   ****************************/
 
-void allocateOneFloat(float number)
+float* allocateOneFloat(float number)
 {
 	float* p = new float(number);
 	return p;
@@ -25,12 +25,40 @@ void allocateOneFloat(float number)
  * ALLOCATE ARRAY of DOUBLEs
  ****************************/
 
+float[]* allocateArrayDouble(int number)
+{
+	if (number <= 0)
+	{
+		return nullptr;
+	}
+	else
+	{
+		return new float[number];
+	}
+}
 
 /****************************
  * DELETE ONE FLOAT
  ****************************/
 
+void deleteOneFloat(float number)
+{
+	if (number != nullptr)
+	{
+		delete number;
+		number = nullptr;
+	}
+}
 
 /****************************
  * DELETE ARRAY of DOUBLEs
  ****************************/
+
+void deleteArrayDouble(float[] number)
+{
+	if (number != nullptr)
+	{
+		delete[] number;
+		number = nullptr;
+	}
+}
