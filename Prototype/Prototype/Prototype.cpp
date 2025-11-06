@@ -13,6 +13,17 @@
 
 using namespace std;
 
+/****************************************************
+ * GRAVITY CALULATIONS
+ ****************************************************/
+float calcGravity(float altitude)
+{
+	//searches through array for two closest values
+	//then uses linear interpolation to calculate the corresponding value for gravity
+
+
+}
+
 
 /****************************************************
  * MAIN
@@ -22,27 +33,34 @@ int main()
 	float distance = 0; //x value
 	float altitude = 0; //y value
 
-	float timeScale = 1;
-	float acceleration = 0;
-	float drat = 0;
-	float gravity = 0;
+	//constant
+	float timeScale = 0.01;
+	//calculated on each loop
+	float gravity;
+
+	float drag = 0;
+
 	float initialAngle = (75 * M_PI / 180);
 	float initialSpeed = 827;
-	
-	float dx = (initialSpeed * cos(initialAngle));
-	float dy = (initialSpeed * sin(initialAngle));
 
-	
-	float velocity = sqrt((dx * dx) + (dy * dy));
+	float dy = (initialSpeed * cos(initialAngle));
+	float dx = (initialSpeed * sin(initialAngle));
 
 
-	for (int i = 1; i <= 20; i++)
+	float totalVelocity = sqrt((dx * dx) + (dy * dy));
+	float hangTime = 0;
+
+	while (altitude >= 0)
 	{
-		distance = distance + dy * timeScale; //no acceleration, as it is 0
-		altitude = altitude + dx * timeScale; //no gravity, as it is 0
+		gravity = calcGravity(altitude);
+		distance = distance + dx * timeScale; //no acceleration, as it is 0
+		altitude = altitude + dy * timeScale + 0.5 * (gravity * (timeScale * timeScale));
+
+		dy = dy + (gravity * timeScale);
+		hangTime += timeScale;
 	}
 
-	cout << "Distance : " << distance << "   Altitude : " << altitude;
+	cout << "Distance : " << distance << "   Altitude : " << altitude << "   Hang Time :" << hangTime;
 
 }
 
