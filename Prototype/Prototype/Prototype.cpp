@@ -18,11 +18,12 @@ using namespace std;
  ****************************************************/
 float calcGravity(float altitude)
 {
-	//searches through array for two closest values
+	//searches through vector (tabular data) for two closest values
 	//then uses linear interpolation to calculate the corresponding value for gravity
 
 
-}
+
+};
 
 
 /****************************************************
