@@ -6,9 +6,13 @@
  * 3. Assignment Description:
  *      Traverse a string using pointer notation
  * 4. What was the hardest part? Be as specific as possible.
- *      -a paragraph or two about how the assignment went for you-
+ *      -The end conditions for the loops were tricky to figure out. 
+ *		The countArray function needed an end condition specified,
+ *		needing the strlen function to determine the length of the string.
+ *		The countPointer function needed to check for the null terminator
+ *		which it does on its own when dereferencing the pointer.
  * 5. How long did it take for you to complete the assignment?
- *      -total time in hours: reading the assignment, submitting, etc.
+ *      -2 hours
  **************************************************************/
 
 
@@ -34,7 +38,7 @@ inline char countArray(char* text, char letter)
 inline char countPointer(char* text, char letter)
 {
 	int result = 0;
-	for (char* ptr = text; ptr != NULL; ptr++)
+	for (char* ptr = text; *ptr; ptr++)
 	{
 		if (*ptr == letter)
 		{
