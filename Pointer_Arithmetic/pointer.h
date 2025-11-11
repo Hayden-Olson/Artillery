@@ -18,6 +18,11 @@
 inline int countArray()
 {
 	int numbers[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	for (int count = 0; count < numbers[count]; count++)
+	{
+
+	}
 }
 
 /**************************************
@@ -26,4 +31,9 @@ inline int countArray()
 inline int countPointer()
 {
 	int numbers[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	for (int* ptr = numbers; ptr < numbers + 10; ptr++)
+	{
+
+	}
 }
