@@ -275,30 +275,30 @@ double calcDragCoEf(double altitude, double velocity)
 		}
 	}
 }
-
 /****************************************************
- * MAIN
+ * PHYSICS LOOP
  ****************************************************/
-int main()
+void physicsLoop(double angle)
 {
+	double initialAngle = (angle * M_PI / 180);
+
 	double distance = 0; //x value
 	double altitude = 0; //y value
 	double prevDist;
 	double prevAlt;
 
-	//constants
+
 	double timeScale = 0.01;
 	double mass = 46.7;
 	double diameter_m = 154.89 / 1000.0; // mm -> m
 	double area = M_PI * (diameter_m * 0.5) * (diameter_m * 0.5);
-	double initialAngle = (75 * M_PI / 180);
 	double initialSpeed = 827;
 
 	//velocities
 	double dy = (initialSpeed * cos(initialAngle));
 	double dx = (initialSpeed * sin(initialAngle));
 	double totalVelocity;
-	
+
 	double hangTime = 0;
 
 
@@ -317,17 +317,17 @@ int main()
 
 		//get drag coefficient from velocity
 		double dragCoEf = calcDragCoEf(altitude, totalVelocity);
-		
+
 		//calculate drag 
 		double drag = 0.5 * dragCoEf * airDensity * (totalVelocity * totalVelocity) * area;
-		
+
 		//get gravity relative to altitude
 		double gravity = -calcGravity(altitude);
-		
+
 		//update position
-		distance = distance + dx * timeScale; 
+		distance = distance + dx * timeScale;
 		altitude = altitude + dy * timeScale;
-		
+
 		//convert drag force to acceleration
 		double dragAccel = drag / mass;
 
@@ -344,13 +344,29 @@ int main()
 		hangTime += timeScale;
 	}
 
-	
+
 	double impactTime = -prevAlt / (altitude - prevAlt);
 	double impactDistance = prevDist + impactTime * (distance = prevDist);
 	double impactMoment = hangTime - timeScale + impactTime * timeScale;
 
 	cout << std::fixed << std::setprecision(1) << "Distance : " << impactDistance << "m  Hang Time :" << impactMoment << "s";
 
+}
+
+
+/****************************************************
+ * MAIN
+ ****************************************************/
+int main()
+{
+	cout << "Up" << endl;
+	physicsLoop(0);
+	cout << endl << "High" << endl;
+	physicsLoop(30);
+	cout << endl << "Low" << endl;
+	physicsLoop(60);
+	cout << endl << "Backwards" << endl;
+	physicsLoop(-45);
 }
 
 
