@@ -15,25 +15,31 @@
 /**************************************
  * COUNT - ARRAY
  **************************************/
-inline int countArray()
+inline char countArray(char* text, char letter)
 {
-	int numbers[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-
-	for (int count = 0; count < numbers[count]; count++)
+	int result = 0;
+	for (int count = 0; count < strlen(text); count++)
 	{
-
+		if (text[count] == letter)
+		{
+			result++;
+		}
 	}
+	return result;
 }
 
 /**************************************
  * COUNT - POINTER
  **************************************/
-inline int countPointer()
+inline char countPointer(char* text, char letter)
 {
-	int numbers[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-
-	for (int* ptr = numbers; ptr < numbers + 10; ptr++)
+	int result = 0;
+	for (char* ptr = text; ptr != NULL; ptr++)
 	{
-
+		if (*ptr == letter)
+		{
+			result++;
+		}
 	}
+	return result;
 }
