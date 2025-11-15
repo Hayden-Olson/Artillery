@@ -2,7 +2,7 @@
  * Source File:
  *    ANGLE
  * Author:
- *    <your name here>
+ *    Br. Helfrich
  * Summary:
  *    Everything we need to know about a direction
  ************************************************************************/
@@ -11,14 +11,6 @@
 #include <math.h>  // for floor()
 #include <cassert>
 using namespace std;
-
- /************************************
-  * ANGLE : NORMALIZE
-  ************************************/
-double Angle::normalize(double radians) const
-{
-   return 9.9;
-}
 
 
 
