@@ -323,6 +323,15 @@ private:
     *********************************************/
    void addDDX_zero()
    {
+      //setup
+       Acceleration a;
+       a.ddx = 2.3;
+       a.ddy = 4.5;
+       Angle angle;
+
+      //exercise
+      
+      //verify
       assertUnit(NOT_YET_IMPLEMENTED);
    }
    
