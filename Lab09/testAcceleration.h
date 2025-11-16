@@ -330,9 +330,13 @@ private:
        Angle angle;
 
       //exercise
+       a.addDDX(0.0);
       
       //verify
-      assertUnit(NOT_YET_IMPLEMENTED);
+       assertEquals(a.ddx, 2.3);
+       assertEquals(a.ddy, 4.5);
+
+       //teardown
    }
    
    /*********************************************
@@ -342,7 +346,20 @@ private:
     *********************************************/
    void addDDX_value()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Acceleration a;
+       a.ddx = 2.3;
+       a.ddy = 4.5;
+       Angle angle;
+
+       //exercise
+       a.addDDX(4.1);
+
+       //verify
+       assertEquals(a.ddx, 6.4);
+       assertEquals(a.ddy, 4.5);
+
+       //teardown
    }
 
    /*********************************************
@@ -352,7 +369,20 @@ private:
     *********************************************/
    void addDDY_zero()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Acceleration a;
+       a.ddx = 2.3;
+       a.ddy = 4.5;
+       Angle angle;
+
+       //exercise
+       a.addDDY(0.0);
+
+       //verify
+       assertEquals(a.ddx, 2.3);
+       assertEquals(a.ddy, 4.5);
+
+       //teardown
    }
 
    /*********************************************
@@ -362,7 +392,20 @@ private:
     *********************************************/
    void addDDY_value()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Acceleration a;
+       a.ddx = 2.3;
+       a.ddy = 4.5;
+       Angle angle;
+
+       //exercise
+       a.addDDY(4.1);
+
+       //verify
+       assertEquals(a.ddx, 2.3);
+       assertEquals(a.ddy, 8.6);
+
+       //teardown
    }
 
    /*********************************************
@@ -372,7 +415,16 @@ private:
     *********************************************/
    void add_zeroZero()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Acceleration accel1;
+       Acceleration accel2;
+
+       //excersize
+       accel1.add(accel2);
+
+       //verify
+       assertEquals(accel1.getDDX(), 0.0);
+       assertEquals(accel1.getDDY(), 0.0);
    }
 
    /*********************************************
@@ -382,7 +434,18 @@ private:
     *********************************************/
    void add_valueZero()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Acceleration accel1(1.1, 2.2);
+       Acceleration accel2;
+
+       //excersize
+       accel1.add(accel2);
+
+       //verify
+       assertEquals(accel1.getDDX(), 1.1);
+       assertEquals(accel1.getDDY(), 2.2);
+
+       //teardown
    }
 
    /*********************************************
@@ -392,7 +455,16 @@ private:
     *********************************************/
    void add_zeroValue()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Acceleration accel1;
+       Acceleration accel2(4.4, 7.7);
+
+       //excersize
+       accel1.add(accel2);
+
+       //verify
+       assertEquals(accel1.getDDX(), 4.4);
+       assertEquals(accel1.getDDY(), 7.7);
    }
 
    /*********************************************
@@ -402,7 +474,16 @@ private:
     *********************************************/
    void add_valueValue()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Acceleration accel1(1.1, 2.2);
+       Acceleration accel2(4.4, 7.7);
+
+       //excersize
+       accel1.add(accel2);
+
+       //verify
+       assertEquals(accel1.getDDX(), 5.5);
+       assertEquals(accel1.getDDY(), 9.9);
    }
 
 };
