@@ -189,6 +189,8 @@ private:
    void getZoom_member()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
+       Position::metersFromPixels = 123.4;
        //exercise
        //verify
 	   //teardown
@@ -206,6 +208,7 @@ private:
    void getZoom_anotherVariable()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
@@ -269,6 +272,7 @@ private:
    void getPixelsX_noZoom()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
@@ -284,6 +288,7 @@ private:
    void getPixelsX_zoom()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
@@ -298,6 +303,7 @@ private:
    void getPixelsY_noZoom()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
@@ -312,6 +318,7 @@ private:
    void getPixelsY_zoom()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
@@ -378,6 +385,7 @@ private:
    void setPixelsX_noZoom()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
@@ -393,6 +401,7 @@ private:
    void setPixelsX_zoom()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
@@ -407,6 +416,7 @@ private:
    void setPixelsY_noZoom()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
@@ -421,6 +431,7 @@ private:
    void setPixelsY_zoom()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
@@ -435,6 +446,7 @@ private:
    void addMetersX()
    {
        //setup
+       double metersFromPixels = Position::metersFromPixels;
        //exercise
        //verify
        //teardown
