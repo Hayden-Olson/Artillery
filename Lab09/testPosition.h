@@ -188,6 +188,10 @@ private:
     *********************************************/
    void getZoom_member()
    {
+       //setup
+       //exercise
+       //verify
+	   //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
    
@@ -201,6 +205,10 @@ private:
     *********************************************/
    void getZoom_anotherVariable()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -260,6 +268,10 @@ private:
     *********************************************/
    void getPixelsX_noZoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
    
@@ -271,6 +283,10 @@ private:
     *********************************************/
    void getPixelsX_zoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -281,6 +297,10 @@ private:
     *********************************************/
    void getPixelsY_noZoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -291,6 +311,10 @@ private:
     *********************************************/
    void getPixelsY_zoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -353,6 +377,10 @@ private:
     *********************************************/
    void setPixelsX_noZoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -364,6 +392,10 @@ private:
     *********************************************/
    void setPixelsX_zoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
    
@@ -374,6 +406,10 @@ private:
     *********************************************/
    void setPixelsY_noZoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -384,6 +420,10 @@ private:
     *********************************************/
    void setPixelsY_zoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -394,6 +434,10 @@ private:
     *********************************************/
    void addMetersX()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -404,6 +448,10 @@ private:
     *********************************************/
    void addMetersY()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -414,6 +462,10 @@ private:
     *********************************************/
    void addPixelsX_noZoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -424,6 +476,10 @@ private:
     *********************************************/
    void addPixelsX_zoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -434,6 +490,10 @@ private:
     *********************************************/
    void addPixelsY_noZoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -444,6 +504,10 @@ private:
     *********************************************/
    void addPixelsY_zoom()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -455,6 +519,10 @@ private:
     *********************************************/
    void setZoom_member()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -469,6 +537,10 @@ private:
     *********************************************/
    void setZoom_anotherVariable()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -479,6 +551,10 @@ private:
     *********************************************/
    void add_stationary()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -490,6 +566,10 @@ private:
     *********************************************/
    void add_moving()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -501,6 +581,10 @@ private:
     *********************************************/
    void add_movingLonger()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -512,6 +596,10 @@ private:
     *********************************************/
    void add_fromStop()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
 
@@ -523,6 +611,10 @@ private:
     *********************************************/
    void add_fromStopLonger()
    {
+       //setup
+       //exercise
+       //verify
+       //teardown
       assertUnit(NOT_YET_IMPLEMENTED);
    }
    
