@@ -23,67 +23,84 @@ int getPosition(const char* position)
 {
     int row = -1;
     int col = -1;
-
-    if (nullptr == position)
+    try
     {
-        cout << "\tERROR: Please provide a valid string\n";
-        return -1;
-    }
-
-    for (const char* p = position; *p; p++)
-    {
-        if (isalpha(*p))
+        if (nullptr == position)
         {
-            if (col != -1)
+            throw "\tERROR: Please provide a valid string\n";
+            cout << "\tERROR: Please provide a valid string\n";
+            return -1;
+        }
+
+        for (const char* p = position; *p; p++)
+        {
+            if (isalpha(*p))
             {
-                cout << "\tERROR: More than one column specifier\n";
-                return -1;
+                if (col != -1)
+                {
+                    throw "\tERROR: More than one column specifier\n";
+                    cout << "\tERROR: More than one column specifier\n";
+                    return -1;
+                }
+                else if (isupper(*p))
+                {
+                    throw "\tERROR: Columns must be lowercase\n";
+                    cout << "\tERROR: Columns must be lowercase\n";
+                    return -1;
+                }
+                else if ('a' <= *p && *p <= 'h')
+                    col = *p - 'a';
+                else
+                {
+                    throw "\tERROR: Columns must be between a and h\n";
+                    cout << "\tERROR: Columns must be between a and h\n";
+                    return -1;
+                }
             }
-            else if (isupper(*p))
+            else if (isdigit(*p))
             {
-                cout << "\tERROR: Columns must be lowercase\n";
-                return -1;
+                if (row != -1)
+                {
+                    throw "\tERROR: More than one row specifier\n";
+                    cout << "\tERROR: More than one row specifier\n";
+                    return -1;
+                }
+                else if ('1' <= *p && *p <= '8')
+                    row = *p - '1';
+                else
+                {
+                    throw "\tERROR: Rows must be between 1 and 8\n";
+                    cout << "\tERROR: Rows must be between 1 and 8\n";
+                    return -1;
+                }
             }
-            else if ('a' <= *p && *p <= 'h')
-                col = *p - 'a';
             else
             {
-                cout << "\tERROR: Columns must be between a and h\n";
+                throw "\tERROR: Unknown letter\n";
+                cout << "\tERROR: Unknown letter\n";
                 return -1;
             }
         }
-        else if (isdigit(*p))
+
+        if (row == -1)
         {
-            if (row != -1)
-            {
-                cout << "\tERROR: More than one row specifier\n";
-                return -1;
-            }
-            else if ('1' <= *p && *p <= '8')
-                row = *p - '1';
-            else
-            {
-                cout << "\tERROR: Rows must be between 1 and 8\n";
-                return -1;
-            }
+            throw "\tERROR: You must specify a row\n";
+            cout << "\tERROR: You must specify a row\n";
+            return -1;
         }
-        else
+        else if (col == -1)
         {
-            cout << "\tERROR: Unknown letter\n";
+            throw "\tERROR: You must specify a column\n";
+            cout << "\tERROR: You must specify a column\n";
             return -1;
         }
     }
-
-    if (row == -1)
+    catch (const char* message)
     {
-        cout << "\tERROR: You must specify a row\n";
+        cerr << message;
         return -1;
     }
-    else if (col == -1)
-    {
-        cout << "\tERROR: You must specify a column\n";
-        return -1;
-    }
+    
 
     return row * 8 + col;
 }
@@ -130,6 +147,6 @@ int main()
 {
     test_getPosition();
     cout << "Tests pass\n";
-
+    
     return 0;
 }
