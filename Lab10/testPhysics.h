@@ -677,7 +677,22 @@ private:
     *********************************************************/
    void linearInterpolation_coordinatesZero()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       
+       double d0 = 0;
+       double r0 = 0;
+       double d1 = 8;
+       double r1 = 8;
+       double d = d0;
+    
+      //excersise
+       double r = linearInterpolation(d0, r0, d1, r1, d);
+
+      //verify
+       assertEquals(d, 0);
+       assertEquals(r, 0);
+
+      //teardown
    }
 
    /*********************************************************
@@ -693,7 +708,22 @@ private:
     *********************************************************/
    void linearInterpolation_coordinatesOne()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+
+       double d0 = 0;
+       double r0 = 0;
+       double d1 = 8;
+       double r1 = 8;
+       double d = d1;
+
+       //excersise
+       double r = linearInterpolation(d0, r0, d1, r1, d);
+
+       //verify
+       assertEquals(d, 8);
+       assertEquals(r, 8);
+
+       //teardown
    }
 
    /*********************************************************
