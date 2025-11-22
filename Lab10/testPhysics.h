@@ -1496,7 +1496,15 @@ private:
      ********************************************************/
    void dragFromMach_000()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       double speedMach = 0.0;
+       double drag = -99.99;
+       // exercise
+       drag = dragFromMach(speedMach);
+       // verify
+       assertEquals(speedMach, 0.0);
+       assertEquals(drag, 0.0);
+       //teardown
    }
 
     /*******************************************************
@@ -1506,7 +1514,15 @@ private:
      ********************************************************/
    void dragFromMach_500()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       double speedMach = 5.0;
+       double drag = -99.99;
+       // exercise
+       drag = dragFromMach(speedMach);
+       // verify
+       assertEquals(speedMach, 5.0);
+       assertEquals(drag, 0.2656);
+       //teardown
    }
 
     /*******************************************************
@@ -1516,7 +1532,15 @@ private:
      ********************************************************/
    void dragFromMach_100()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       double speedMach = 1.0;
+       double drag = -99.99;
+       // exercise
+       drag = dragFromMach(speedMach);
+       // verify
+       assertEquals(speedMach, 1.0);
+       assertEquals(drag, 0.4258);
+       //teardown
    }
 
     /*******************************************************
@@ -1526,7 +1550,15 @@ private:
      ********************************************************/
    void dragFromMach_060()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       double speedMach = 0.6;
+       double drag = -99.99;
+       // exercise
+       drag = dragFromMach(speedMach);
+       // verify
+       assertEquals(speedMach, 0.6);
+       assertEquals(drag, 0.1845);
+       //teardown
    }
 
     /*******************************************************
@@ -1536,7 +1568,15 @@ private:
      ********************************************************/
    void dragFromMach_010()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       double speedMach = 0.1;
+       double drag = -99.99;
+       // exercise
+       drag = dragFromMach(speedMach);
+       // verify
+       assertEquals(speedMach, 0.1);
+       assertEquals(drag, 0.0543);
+       //teardown
    }
 
     /*******************************************************

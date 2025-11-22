@@ -271,6 +271,54 @@ double speedSoundFromAltitude(double altitude)
  *********************************************************/
 double dragFromMach(double speedMach)
 {
-   return -99.9;
+	const std::vector<std::pair<double, double>> dragCoEf =
+	{
+		//		Mach    Drag Coef
+				{0.000, 0.0000},
+				{0.300, 0.1629},
+				{0.500, 0.1659},
+				{0.700, 0.2031},
+				{0.890, 0.2597},
+				{0.920, 0.3010},
+				{0.960, 0.3287},
+				{0.980, 0.4002},
+				{1.000, 0.4258},
+				{1.020, 0.4335},
+				{1.060, 0.4483},
+				{1.240, 0.4064},
+				{1.530, 0.3663},
+				{1.990, 0.2897},
+				{2.870, 0.2297},
+				{2.890, 0.2306},
+				{5.000, 0.2656}
+	};
+
+	//edge cases for mach
+
+	if (speedMach > 5.000)
+	{
+		return 0.2656;
+	}
+
+	//getting drag coefficient from mach
+	for (int i = 0; i < dragCoEf.size(); i++)
+	{
+
+		if (speedMach == dragCoEf[i].first)
+		{
+			return dragCoEf[i].second;
+		}
+		else if (speedMach < dragCoEf[i].first)
+		{
+			double x1 = dragCoEf[i - 1].first;
+			double y1 = dragCoEf[i - 1].second;
+			double x2 = dragCoEf[i].first;
+			double y2 = dragCoEf[i].second;
+
+			double finalDrag = linearInterpolation(x1, y1, x2, y2, speedMach);
+
+			return finalDrag;
+		}
+	}
 }
 
