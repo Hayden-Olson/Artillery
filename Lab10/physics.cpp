@@ -8,6 +8,12 @@
  ************************************************************************/
   
  #include "physics.h"  // for the prototypes
+#include <cmath>
+#include <math.h>
+#include <vector>
+#include <array>
+#include <iomanip>
+ 
  
  /*********************************************************
  * LINEAR INTERPOLATION
@@ -55,7 +61,76 @@ double linearInterpolation(const Mapping mapping[], int numMapping, double domai
  *********************************************************/
 double gravityFromAltitude(double altitude)
 {
-   return -99.9;
+	//searches through vector (tabular data) for two closest values
+//then uses linear interpolation to calculate the corresponding value for gravity
+	const std::vector<std::pair<double, double>> gravity =
+	{
+		{0,		9.807},
+		{1000,	9.804},
+		{2000,	9.801},
+		{3000,	9.797},
+		{4000,	9.794},
+		{5000,	9.791},
+		{6000,	9.788},
+		{7000,	9.785},
+		{8000,	9.782},
+		{9000,	9.779},
+		{10000,	9.776},
+		{15000,	9.761},
+		{20000,	9.745},
+		{25000,	9.730},
+		{30000,	9.715},
+		{40000,	9.684},
+		{50000,	9.654},
+		{60000,	9.624},
+		{70000,	9.594},
+		{80000,	9.564}
+	};
+
+	//edge cases
+	if (altitude < 0)
+	{
+		return 9.807;
+	}
+	if (altitude > 80000)
+	{
+		return 9.564;
+	}
+
+	//main search and linear interpolation
+	for (int i = 0; i < gravity.size(); i++)
+	{
+
+		if (altitude == gravity[i].first)
+		{
+			return gravity[i].second;
+		}
+		else if (altitude < gravity[i].first)
+		{
+			double x1 = gravity[i - 1].first;
+			double y1 = gravity[i - 1].second;
+			double x2 = gravity[i].first;
+			double y2 = gravity[i].second;
+
+			double gravCoef = linearInterpolation(x1, y1, x2, y2, altitude);
+
+			return gravCoef;
+		}
+
+	}
+
+
+	/*
+	* I spent a while trying to get a raw calculation to work before I realised that we were supposed to be using linear interpolation on the prototype set of data.
+	* leaving this here for now.
+	* 
+	double earthRad = 6371000; //in meters to match altitude
+	double surfaceGrav = 9.807;
+
+	double gravCoef = surfaceGrav * ( (earthRad / (earthRad + altitude)) * (earthRad / (earthRad + altitude)) );
+
+	return gravCoef
+	*/
 }
 
 /*********************************************************
