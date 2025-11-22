@@ -197,6 +197,8 @@ double densityFromAltitude(double altitude)
 		}
 
 	}
+
+
 }
 
 /*********************************************************
@@ -205,7 +207,61 @@ double densityFromAltitude(double altitude)
  ********************************************************/
 double speedSoundFromAltitude(double altitude)
 {
-   return -99.9;
+	const std::vector<std::pair<double, double>> speedOfSound =
+	{
+		//	Altitude, Speed of sound  
+			{0,      340},
+			{1000,   336},
+			{2000,   332},
+			{3000,   328},
+			{4000,   324},
+			{5000,   320},
+			{6000,   316},
+			{7000,   312},
+			{8000,   308},
+			{9000,   303},
+			{10000,  299},
+			{15000,  295},
+			{20000,  295},
+			{25000,  295},
+			{30000,  305},
+			{40000,  324},
+			{50000,  337},
+			{60000,  319},
+			{70000,  289},
+			{80000,  269}
+	};
+
+	//edge cases for speed of sound
+	double finalSoundSpeed;
+	if (altitude <= 0)
+	{
+		return 340.0;
+	}
+	if (altitude >= 80000)
+	{
+		return 269.0;
+	}
+	//search and linear interpolation
+	for (int i = 0; i < speedOfSound.size(); i++)
+	{
+
+		if (altitude == speedOfSound[i].first)
+		{
+			return speedOfSound[i].second;
+			
+		}
+		else if (altitude < speedOfSound[i].first)
+		{
+			double x1 = speedOfSound[i - 1].first;
+			double y1 = speedOfSound[i - 1].second;
+			double x2 = speedOfSound[i].first;
+			double y2 = speedOfSound[i].second;
+
+			double finalSoundSpeed = linearInterpolation(x1, y1, x2, y2, altitude);
+			return finalSoundSpeed;
+		}
+	}
 }
 
 
