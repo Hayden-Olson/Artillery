@@ -139,7 +139,64 @@ double gravityFromAltitude(double altitude)
  *********************************************************/
 double densityFromAltitude(double altitude)
 {
-   return -99.9;
+
+	const std::vector<std::pair<double, double>> density =
+	{
+
+		//		Altitude	Density
+				{0,		 1.2250000},
+				{1000,	 1.1120000},
+				{2000,	 1.0070000},
+				{3000,	 0.9093000},
+				{4000,	 0.8194000},
+				{5000,	 0.7364000},
+				{6000,	 0.6601000},
+				{7000,	 0.5900000},
+				{8000,	 0.5258000},
+				{9000,	 0.4671000},
+				{10000,	 0.4135000},
+				{15000,	 0.1948000},
+				{20000,	 0.0889100},
+				{25000,	 0.0400800},
+				{30000,	 0.0184100},
+				{40000,	 0.0039960},
+				{50000,	 0.0010270},
+				{60000,	 0.0003097},
+				{70000,	 0.0000828},
+				{80000,	 0.0000185}
+	};
+
+	//edge cases
+	if (altitude < 0)
+	{
+		return  1.2250000;
+	}
+	if (altitude > 80000)
+	{
+		return 0.0000185;
+	}
+
+	//main search and linear interpolation
+	for (int i = 0; i < density.size(); i++)
+	{
+
+		if (altitude == density[i].first)
+		{
+			return density[i].second;
+		}
+		else if (altitude < density[i].first)
+		{
+			double x1 = density[i - 1].first;
+			double y1 = density[i - 1].second;
+			double x2 = density[i].first;
+			double y2 = density[i].second;
+
+			double airDensity = linearInterpolation(x1, y1, x2, y2, altitude);
+
+			return airDensity;
+		}
+
+	}
 }
 
 /*********************************************************
