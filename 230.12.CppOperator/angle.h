@@ -68,6 +68,16 @@ public:
 	//Negative (This should work like the prefix increment operator)
 
 	//Increment and Deincrement
+	Angle& operator+= (const Angle& rhs)
+	{
+		radians += rhs.radians;
+		return *this;
+	}
+	Angle& operator-= (const Angle& rhs)
+	{
+		radians -= rhs.radians;
+		return *this;
+	}
 
 	/*********************************************
 		Non-Member Operator Overrides
