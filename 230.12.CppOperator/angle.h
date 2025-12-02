@@ -66,6 +66,12 @@ public:
 	}
 
 	//Negative (This should work like the prefix increment operator)
+	Angle& operator-(Angle& num)
+	{
+		num.radians - 1.0;
+		// return new value
+		return num;
+	}
 
 	//Increment and Deincrement
 	Angle& operator+= (const Angle& rhs)
@@ -84,6 +90,14 @@ public:
 	**********************************************/
 
 	//Equals not Equals
+	inline friend bool operator==(const Angle& lhs,const Angle& rhs)
+	{
+		return lhs.radians == rhs.radians;
+	}
+	inline friend bool operator!=(const Angle& lhs, const Angle& rhs)
+	{
+		return lhs.radians != rhs.radians;
+	}
 
 	//Insertion
 	inline friend ostream& operator<<(ostream& out, const Angle& rhs)
