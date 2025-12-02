@@ -49,6 +49,35 @@ public:
 		setDegrees(degrees);
 	};
 
+	/*********************************************
+		Operator Overrides
+	**********************************************/
+	
+	// assignment 
+	Angle& operator= (const Angle & rhs)
+	{
+		radians = rhs.radians;
+		return *this;
+	}
+	Angle& operator= (double rhs)
+	{
+		radians = rhs;
+		return *this;
+	}
+
+	//Negative
+
+	//Equals not Equals
+
+	//Insertion
+
+	//Extraction
+
+	//Increment and Deincrement
+
+
+
+
 	// Getters
 	double getDegrees() const
 	{
