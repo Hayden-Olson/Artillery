@@ -65,29 +65,43 @@ public:
 		return *this;
 	}
 
-	//Negative (This should work like the prefix increment operator)
-	Angle& operator-(Angle& num)
-	{
-		num.radians - 1.0;
-		// return new value
-		return num;
-	}
-
 	//Increment and Deincrement
-	Angle& operator+= (const Angle& rhs)
+	Angle& operator++()
 	{
-		radians += rhs.radians;
+		radians += 1.0;
+		// return new value
 		return *this;
 	}
-	Angle& operator-= (const Angle& rhs)
+	Angle operator++(int postfix)
 	{
-		radians -= rhs.radians;
+		Angle numReturn(*this);
+		radians += 1.0;
+		// return old value
+		return numReturn;
+	}
+	Angle& operator--()
+	{
+		radians -= 1.0;
+		// return new value
 		return *this;
+	}
+	Angle operator--(int postfix)
+	{
+		Angle numReturn(*this);
+		radians -= 1.0;
+		// return old value
+		return numReturn;
 	}
 
 	/*********************************************
 		Non-Member Operator Overrides
 	**********************************************/
+
+	//Negative (This should work like the prefix increment operator)
+	Angle operator-(const Angle& rhs) const
+	{
+		return Angle(rhs.radians - radians);
+	}
 
 	//Equals not Equals
 	inline friend bool operator==(const Angle& lhs,const Angle& rhs)
