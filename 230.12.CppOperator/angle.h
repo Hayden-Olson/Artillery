@@ -69,7 +69,25 @@ public:
 
 	//Increment and Deincrement
 
+	/*********************************************
+		Non-Member Operator Overrides
+	**********************************************/
 
+	//Equals not Equals
+
+	//Insertion
+	inline friend ostream& operator<<(ostream& out, const Angle& rhs)
+	{
+		out << rhs.radians;
+		return out;
+	}
+
+	//Extraction
+	inline friend istream& operator>>(istream& in, Angle& rhs)
+	{
+		in >> rhs.radians;
+		return in;
+	}
 
 
 	// Getters
@@ -160,23 +178,3 @@ private:
 
 	double radians;   // 360 degrees equals 2 PI radians
 };
-
-/*********************************************
-		Non-Member Operator Overrides
-**********************************************/
-
-//Equals not Equals
-
-//Insertion
-ostream & operator<<(ostream & out, const Angle & rhs)
-{
-	out << rhs.radians;
-	return out;
-}
-
-//Extraction
-istream & operator>>(istream & in, Angle & rhs)
-{
-	in >> rhs.radians;
-	return in;
-}
