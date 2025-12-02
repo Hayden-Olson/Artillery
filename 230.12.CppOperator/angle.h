@@ -168,6 +168,15 @@ private:
 //Equals not Equals
 
 //Insertion
-
+ostream & operator<<(ostream & out, const Angle & rhs)
+{
+	out << rhs.radians;
+	return out;
+}
 
 //Extraction
+istream & operator>>(istream & in, Angle & rhs)
+{
+	in >> rhs.radians;
+	return in;
+}
