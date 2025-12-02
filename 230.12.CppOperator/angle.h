@@ -50,7 +50,7 @@ public:
 	};
 
 	/*********************************************
-		Operator Overrides
+		Member Operator Overrides
 	**********************************************/
 	
 	// assignment 
@@ -65,13 +65,7 @@ public:
 		return *this;
 	}
 
-	//Negative
-
-	//Equals not Equals
-
-	//Insertion
-
-	//Extraction
+	//Negative (This should work like the prefix increment operator)
 
 	//Increment and Deincrement
 
@@ -166,3 +160,14 @@ private:
 
 	double radians;   // 360 degrees equals 2 PI radians
 };
+
+/*********************************************
+		Non-Member Operator Overrides
+**********************************************/
+
+//Equals not Equals
+
+//Insertion
+
+
+//Extraction
