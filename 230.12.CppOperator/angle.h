@@ -108,7 +108,8 @@ public:
 	//Negative (This should work like the prefix increment operator)
 	inline friend Angle operator-(const Angle& rhs)
 	{
-		Angle angle = M_PI * 2 - rhs.radians;
+		Angle angle;
+		angle.setRadians(M_PI * 2 - rhs.radians);
 		return angle;
 	}
 
