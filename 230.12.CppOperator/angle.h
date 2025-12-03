@@ -125,7 +125,7 @@ public:
 	//Insertion
 	inline friend ostream& operator<<(ostream& out, const Angle& rhs)
 	{
-		out << std::fixed << std::setprecision(1) << rhs.radians;
+		out << std::fixed << std::setprecision(1) << rhs.getDegrees();
 		return out;
 	}
 
@@ -133,6 +133,7 @@ public:
 	inline friend istream& operator>>(istream& in, Angle& rhs)
 	{
 		in >> rhs.radians;
+		rhs.radians=rhs.convertToRadians(rhs.radians);
 		return in;
 	}
 
