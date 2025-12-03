@@ -133,8 +133,11 @@ public:
 	//Extraction
 	inline friend istream& operator>>(istream& in, Angle& rhs)
 	{
-		in >> rhs.radians;
-		rhs.radians=rhs.convertToRadians(rhs.radians);
+		double temp;
+		if (in >> temp)             // only succeeds if in can pass a double into a temp variable
+		{
+			rhs.radians = rhs.convertToRadians(temp);
+		}
 		return in;
 	}
 
@@ -211,7 +214,7 @@ private:
 
 	double normalize(double angle) const
 	{
-		while (angle > (2 * M_PI))
+		while (angle >= (2 * M_PI))
 		{
 			angle = angle - (2 * M_PI);
 		};
