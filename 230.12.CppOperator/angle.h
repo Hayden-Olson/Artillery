@@ -68,27 +68,35 @@ public:
 	//Increment and Deincrement
 	Angle& operator++()
 	{
-		radians += 1.0;
+		radians += M_PI/180;
+		if (radians > 2 * M_PI)
+			radians -= 2 * M_PI;
 		// return new value
 		return *this;
 	}
 	Angle operator++(int postfix)
 	{
 		Angle numReturn(*this);
-		radians += 1.0;
+		radians += M_PI/180;
+		if (radians > 2 * M_PI)
+			radians -= 2 * M_PI;
 		// return old value
 		return numReturn;
 	}
 	Angle& operator--()
 	{
-		radians -= 1.0;
+		radians -= M_PI/180;
+		if (radians < 0)
+			radians += 2 * M_PI;
 		// return new value
 		return *this;
 	}
 	Angle operator--(int postfix)
 	{
 		Angle numReturn(*this);
-		radians -= 1.0;
+		radians -= M_PI/180;
+		if (radians < 0)
+			radians += 2 * M_PI;
 		// return old value
 		return numReturn;
 	}
@@ -117,7 +125,7 @@ public:
 	//Insertion
 	inline friend ostream& operator<<(ostream& out, const Angle& rhs)
 	{
-		out << rhs.radians;
+		out << std::fixed << std::setprecision(1) << rhs.radians;
 		return out;
 	}
 
@@ -194,7 +202,7 @@ public:
 	void display(std::ostream& out) const
 	{
 
-		out << std::fixed << std::setprecision(1) << convertToDegrees(radians) << "degrees";
+		out << std::fixed << std::setprecision(1) << convertToDegrees(radians);
 	};
 
 private:
