@@ -98,9 +98,10 @@ public:
 	**********************************************/
 
 	//Negative (This should work like the prefix increment operator)
-	Angle operator-(const Angle& rhs) const
+	inline friend Angle operator-(const Angle& rhs)
 	{
-		return Angle(rhs.radians - radians);
+		Angle angle = M_PI * 2 - rhs.radians;
+		return angle;
 	}
 
 	//Equals not Equals
