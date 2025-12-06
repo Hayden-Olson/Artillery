@@ -90,7 +90,14 @@ private:
      *********************************************/
    void getPosition_zero()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Howitzer h;
+       //exercize
+       h.position.setMeters(0, 0);
+       //verify
+       assertEquals(h.position.getMetersX(), 0);
+       assertEquals(h.position.getMetersY(), 0);
+       //teardown
    }
 
    /*********************************************
@@ -100,7 +107,14 @@ private:
     *********************************************/
    void getPosition_middle()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       //excersize
+       h.position.setMeters(123.4, 567.8);
+       //verify
+       assertEquals(h.position.getMetersX(), 123.4);
+       assertEquals(h.position.getMetersY(), 567.8);
+       //teardown
    }
 
    /*********************************************
@@ -110,7 +124,13 @@ private:
     *********************************************/
    void getMuzzleVelocity_slow()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       //excersize
+       h.muzzleVelocity = 24.68;
+       //verify
+       assertEquals(h.getMuzzleVelocity(), 24.68);
+       //teardown
    }
 
    /*********************************************
@@ -120,7 +140,13 @@ private:
     *********************************************/
    void getMuzzleVelocity_standard()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       //excersize
+       h.muzzleVelocity = 827.00;
+       //verify
+       assertEquals(h.getMuzzleVelocity(), 827.00);
+       //teardown
    }
 
    /*********************************************
@@ -130,7 +156,13 @@ private:
     *********************************************/
    void getElevation_up()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       //excersize
+       h.elevation = 0;
+       //verify
+       assertEquals(h.getElevation().getDegrees(), 0);
+       //teardown
    }
 
    /*********************************************
@@ -140,7 +172,13 @@ private:
     *********************************************/
    void getElevation_right()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       //excersize
+       h.elevation = 0.4;
+       //verify
+       assertEquals(h.getElevation().getDegrees(), 0.4);
+       //teardown
    }
 
    /*********************************************
@@ -150,7 +188,13 @@ private:
     *********************************************/
    void getElevation_left()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       //excersize
+       h.elevation = 5.8;
+       //verify
+       assertEquals(h.getElevation().getDegrees(), 5.8);
+
    }
 
    /*****************************************************************
