@@ -210,7 +210,13 @@ private:
      *********************************************/
    void generatePosition_small()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       Position p(10, 10);
+       //excersize
+       h.generatePosition(p);
+       //verify
+       assert(1 <= h.position.getMetersX() <= 9);
    }
 
     /*********************************************
@@ -220,7 +226,13 @@ private:
     *********************************************/
    void generatePosition_large()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Howitzer h;
+       Position p(1000, 1000);
+       //excersize
+       h.generatePosition(p);
+       //verify
+       assert(100 <= h.position.getMetersX() <= 900);
    }
 
    /*********************************************
@@ -230,7 +242,13 @@ private:
     *********************************************/
    void raise_rightDown()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       h.elevation.setRadians(0.5);
+       //excersize
+       h.raise(-0.1);
+       //verify
+       assertEquals(h.elevation.getRadians(), 0.6);
    }
 
    /*********************************************
@@ -240,7 +258,13 @@ private:
     *********************************************/
    void raise_rightUp()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       h.elevation.setRadians(0.5);
+       //excersize
+       h.raise(0.1);
+       //verify
+       assertEquals(h.elevation.getRadians(), 0.4);
    }
 
    /*********************************************
@@ -250,17 +274,29 @@ private:
     *********************************************/
    void raise_leftDown()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Howitzer h;
+       h.elevation.setRadians((2 * M_PI) - 0.5);
+       //excersize
+       h.raise(-0.1);
+       //verify
+       assertEquals(h.elevation.getRadians(), ((2 * M_PI) - 0.6));
    }
 
    /*********************************************
     * name:    RAISE to the left up
     * input:   h.elevation=-0.5radians  raise(0.1)
-    * output:  h.elevation=0.4radians
+    * output:  h.elevation=0.4radians       <== pretty sure that's supposed to be -0.4.
     *********************************************/
    void raise_leftUp()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Howitzer h;
+       h.elevation.setRadians((2 * M_PI) - 0.5);
+       //excersize
+       h.raise(0.1);
+       //verify
+       assertEquals(h.elevation.getRadians(), ((2 * M_PI) - 0.4));
    }
 
    /*********************************************
@@ -270,7 +306,14 @@ private:
     *********************************************/
    void rotate_clock()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Howitzer h;
+       h.elevation.setRadians(1.23);
+       //excersize
+       h.rotate(0.3);
+       //verify
+       assertEquals(h.elevation.getRadians(), 1.53);
+       //teardown
    }
 
    /*********************************************
@@ -280,7 +323,14 @@ private:
     *********************************************/
    void rotate_counterClock()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Howitzer h;
+       h.elevation.setRadians(1.23);
+       //excersize
+       h.rotate(-0.3);
+       //verify
+       assertEquals(h.elevation.getRadians(), 0.93);
+       //teardown
    }
 
    /*********************************************
@@ -290,7 +340,14 @@ private:
     *********************************************/
    void rotate_wrapClock()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Howitzer h;
+       h.elevation.setRadians( (2 * M_PI) - 0.1);
+       //excersize
+       h.rotate(0.2);
+       //verify
+       assertEquals(h.elevation.getRadians(), 0.1);
+       //teardown
    }
 
    /*********************************************
@@ -300,7 +357,14 @@ private:
     *********************************************/
    void rotate_wrapCounterClock()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Howitzer h;
+       h.elevation.setRadians(0.1);
+       //excersize
+       h.rotate(-0.2);
+       //verify
+       assertEquals(h.elevation.getRadians(), ((2 * M_PI) - 0.1));
+       //teardown
    }
 
    /*****************************************************************
