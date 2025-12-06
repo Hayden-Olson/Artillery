@@ -63,7 +63,14 @@ private:
     *********************************************/
    void defaultConstructor()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+      //excersize
+       Projectile p;
+       //verify
+       assertEquals(p.mass, 46.7);
+       assertEquals(p.radius, 0.077545);
+       assert(p.flightPath.empty());
+       //teardown
    }
 
    /*********************************************
@@ -73,7 +80,18 @@ private:
     *********************************************/
    void reset_empty()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Projectile p;
+       p.mass = -99;
+       p.radius = -99;
+       p.flightPath = {};
+       //excersize
+       p.reset();
+       //verify
+       assertEquals(p.mass, 46.7);
+       assertEquals(p.radius, 0.077545);
+       assert(p.flightPath.empty());
+       //teardown
    }
 
    /*********************************************
@@ -83,7 +101,19 @@ private:
     *********************************************/
    void reset_full()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Projectile p;
+       p.mass = -99;
+       p.radius = -99;
+       p.flightPath = {{},{},{}};
+       assert(!p.flightPath.empty()); //just to make sure that the empty objects in the setup register as not empty
+       //excersize
+       p.reset();
+       //verify
+       assertEquals(p.mass, 46.7);
+       assertEquals(p.radius, 0.077545);
+       assert(p.flightPath.empty());
+       //teardown
    }
 
 
@@ -100,7 +130,24 @@ private:
     *********************************************/
    void fire_right()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      //setup
+       Projectile p;
+
+       Position pos(111, 222);
+  
+       Angle a; 
+       a.setDegrees(90);
+
+       //excersize
+       p.fire(a, pos, 100);
+
+      
+       //verify
+       assertEquals(p.flightPath.front().pos.getMetersX(), pos.getMetersX()); //each part of the position
+       assertEquals(p.flightPath.front().pos.getMetersY(), pos.getMetersY());
+       assertEquals(p.flightPath.front().v.getSpeed(), 100); //comparing the speed directly to the velocity thats given, so we're sure that there's no calculation issues
+       assertEquals(p.flightPath.front().t, 1);
+       //teardown
    }
 
    /*********************************************
@@ -110,7 +157,23 @@ private:
     *********************************************/
    void fire_left()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Projectile p;
+
+       Position pos(111, 222);
+
+       Angle a;
+       a.setDegrees(-90);
+
+       //excersize
+       p.fire(a, pos, 100);
+
+       //verify
+       assertEquals(p.flightPath.front().pos.getMetersX(), pos.getMetersX()); 
+       assertEquals(p.flightPath.front().pos.getMetersY(), pos.getMetersY());
+       assertEquals(p.flightPath.front().v.getDX(), -100); //setting this to DX, since it should be purely horizontal, and calling speed would give a positive value 
+       assertEquals(p.flightPath.front().t, 1);
+       //teardown
    }
 
    /*********************************************
@@ -120,7 +183,23 @@ private:
     *********************************************/
    void fire_up()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+       //setup
+       Projectile p;
+
+       Position pos(111, 222);
+
+       Angle a;
+       a.setDegrees(0);
+
+       //excersize
+       p.fire(a, pos, 100);
+
+       //verify
+       assertEquals(p.flightPath.front().pos.getMetersX(), pos.getMetersX());
+       assertEquals(p.flightPath.front().pos.getMetersY(), pos.getMetersY());
+       assertEquals(p.flightPath.front().v.getDX(), 0); 
+       assertEquals(p.flightPath.front().t, 1);
+       //teardown
    }
 
    /*****************************************************************
