@@ -64,7 +64,17 @@ private:
      *********************************************/
    void defaultConstructor()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+     //setup
+      Howitzer h;
+     //excersize
+      double hx = h.position.getMetersX();
+      double hy = h.position.getMetersY();
+     //verify
+       assertEquals(hx, 0);
+       assertEquals(hy, 0);
+       assertEquals(h.getElevation().getDegrees(), 45);
+       assertEquals(h.getMuzzleVelocity(), 827.00);
+     // teardown
    }
 
    /*****************************************************************
