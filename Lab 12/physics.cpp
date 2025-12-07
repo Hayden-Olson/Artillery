@@ -24,11 +24,11 @@ double linearInterpolation(const Mapping mapping[], int numMapping, double domai
 	double range = 999.9;
 	
 
-	if (domain < mapping[0].domain)
+	if (domain <= mapping[0].domain)
 	{
 		return mapping[0].range;
 	}
-	if (domain > mapping[numMapping - 1].domain)
+	if (domain >= mapping[numMapping - 1].domain)
 	{
 		return mapping[numMapping - 1].range;
 	}

@@ -44,7 +44,7 @@ public:
 
        if (!flightPath.empty()) 
        {
-
+           double timeValue = simulationTime - flightPath.back().t;
            //need to get accleration and velocity based on altitude and such.
            double altitude = flightPath.back().pos.getMetersY();
            double pVelocityX = flightPath.back().v.getDX();
@@ -55,29 +55,29 @@ public:
            double gravity = gravityFromAltitude(altitude);
            double speedOfSound = speedSoundFromAltitude(altitude);
            double mach = pSpeed / speedOfSound;
-           // a lot of steps....
+
            double drag = dragFromMach(mach);
            double forceX = forceFromDrag(airDensity, drag, radius, pVelocityX);
            double forceY = forceFromDrag(airDensity, drag, radius, pVelocityY);
+
+           //something is going wrong before here. acceleration for both is off, but I'm unsure what that might be from.
            double pAccelerationX = accelerationFromForce(forceX, mass);
            double pAccelerationY = accelerationFromForce(forceY, mass);
+           pAccelerationY -= gravity;
 
-           double pAddVelocityX = velocityFromAcceleration(pAccelerationX, simulationTime);
-           double pAddVelocityY = velocityFromAcceleration(pAccelerationY, simulationTime);
+           double pAddVelocityX = velocityFromAcceleration(pAccelerationX, timeValue);
+           double pAddVelocityY = velocityFromAcceleration(pAccelerationY, timeValue);
 
 
            // x = x + vt + 0.5at^2 
-           //i REALLY hope that I didnt mess something up here.
 
-           //...I messed something up. getting values WAY out of range.
-
-           tempPVT.pos.setMetersX(flightPath.back().pos.getMetersX() + (flightPath.back().v.getDX() * simulationTime) + (0.5 * (pAccelerationX * simulationTime * simulationTime)));
-           tempPVT.pos.setMetersY(flightPath.back().pos.getMetersY() + (flightPath.back().v.getDY() * simulationTime) + (0.5 * ((pAccelerationY - gravity) * simulationTime * simulationTime)));
+           tempPVT.pos.setMetersX(flightPath.back().pos.getMetersX() + (flightPath.back().v.getDX() * timeValue) + (0.5 * (-pAccelerationX * timeValue * timeValue)));
+           tempPVT.pos.setMetersY(flightPath.back().pos.getMetersY() + (flightPath.back().v.getDY() * timeValue) + (0.5 * (pAccelerationY * timeValue * timeValue)));
            //making the adjustments to velocity
            tempPVT.v.setDX(flightPath.back().v.getDX() + pAddVelocityX);
            tempPVT.v.setDY(flightPath.back().v.getDY() + pAddVelocityY);
            //increment the timer (?)
-           tempPVT.t = flightPath.back().t + 1;
+           tempPVT.t = simulationTime;
            //add the new PositionVelocityTime to the end of the list.
            flightPath.push_back(tempPVT);
        }

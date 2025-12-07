@@ -145,7 +145,7 @@ private:
        //verify
        assertEquals(p.flightPath.front().pos.getMetersX(), pos.getMetersX()); //each part of the position
        assertEquals(p.flightPath.front().pos.getMetersY(), pos.getMetersY());
-       assertEquals(p.flightPath.front().v.getSpeed(), 100); //comparing the speed directly to the velocity thats given, so we're sure that there's no calculation issues
+       assertEquals(p.flightPath.front().v.getDX(), 100); //comparing the speed directly to the velocity thats given, so we're sure that there's no calculation issues
        assertEquals(p.flightPath.front().t, 1);
        //teardown
    }
