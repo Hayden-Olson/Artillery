@@ -149,11 +149,35 @@ public:
 		return false;
 	}
 
-	void display(std::ostream& out) const
+	virtual void display(std::ostream& out) const
 	{
 
 		out << std::fixed << std::setprecision(1) << convertToDegrees(radians) << "degrees";
 	};
+
+	virtual Angle & operator++()
+	{
+		if (radians + (M_PI / 180) > (2 * M_PI))
+		{
+			radians = (M_PI / 180);
+		}
+		else
+		{
+			radians += (M_PI / 180);
+		}
+	}
+
+	virtual Angle& operator--()
+	{
+		if (radians - (M_PI / 180) < 0)
+		{
+			radians = (2 * M_PI) - (M_PI / 180);
+		}
+		else
+		{
+			radians -= (M_PI / 180);
+		}
+	}
 
 private:
 
