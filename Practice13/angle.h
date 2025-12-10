@@ -160,10 +160,11 @@ public:
 		radians = normalize(radians + (M_PI / 180));
 		return *this;
 	}
-	virtual Angle & operator++(int postfix)
+	virtual Angle operator++(int postfix)
 	{
+		Angle original(*this);
 		radians = normalize(radians + (M_PI / 180));
-		return *this;
+		return original;
 	}
 
 	virtual Angle& operator--()
@@ -171,10 +172,11 @@ public:
 		radians = normalize(radians - (M_PI / 180));
 		return *this;
 	}
-	virtual Angle & operator--(int postfix)
+	virtual Angle operator--(int postfix)
 	{
+		Angle original(*this);
 		radians = normalize(radians - (M_PI / 180));
-		return *this;
+		return original;
 	}
 	Angle& operator= (const Angle& rhs)
 	{
@@ -261,11 +263,12 @@ public:
 		setRadians((*this).normalize(newRads));
 		return *this;
 	}
-	virtual AngleRadians& operator++(int postfix) override
+	virtual Angle operator++(int postfix) override
 	{
+		Angle original(*this);
 		double newRads = getRadians() + (M_PI / 8);
 		setRadians((*this).normalize(newRads));
-		return *this;
+		return original;
 	}
 	virtual AngleRadians& operator--() override
 	{
@@ -273,11 +276,12 @@ public:
 		setRadians((*this).normalize(newRads));
 		return *this;
 	}
-	virtual AngleRadians& operator--(int postfix) override
+	virtual Angle operator--(int postfix) override
 	{
+		Angle original(*this);
 		double newRads = getRadians() - (M_PI / 8);
 		setRadians((*this).normalize(newRads));
-		return *this;
+		return original;
 	}
 
 };
