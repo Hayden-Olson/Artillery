@@ -18,6 +18,10 @@
 #define TWO_PI 6.28318530718
 #endif // TWO_PI
 
+#ifndef PI_EIGHT
+#define PI_EIGHT (PI/8.0)
+#endif // TWO_PI
+
  /************************************
   * TEST ANGLE
   ************************************/

@@ -157,29 +157,21 @@ public:
 
 	virtual Angle & operator++()
 	{
-		if (radians + (M_PI / 180) > (2 * M_PI))
-		{
-			radians = (M_PI / 180);
-		}
-		else
-		{
-			radians += (M_PI / 180);
-		}
+		radians = normalize(radians + (M_PI / 180));
+	}
+	virtual Angle & operator++(int postfix)
+	{
+		radians = normalize(radians + (M_PI / 180));
 	}
 
 	virtual Angle& operator--()
 	{
-		if (radians - (M_PI / 180) < 0)
-		{
-			radians = (2 * M_PI) - (M_PI / 180);
-		}
-		else
-		{
-			radians -= (M_PI / 180);
-		}
+		radians = normalize(radians - (M_PI / 180));
 	}
-
-private:
+	virtual Angle & operator--(int postfix)
+	{
+		radians = normalize(radians - (M_PI / 180));
+	}
 
 	double normalize(double angle) const
 	{
@@ -195,8 +187,8 @@ private:
 
 		return angle;
 	};
-
 	double radians;   // 360 degrees equals 2 PI radians
+	
 };
 /************************************
  * ANGLE RADIANS
@@ -204,6 +196,7 @@ private:
 class AngleRadians : public Angle
 {
 public:
+	AngleRadians() : Angle(){}
 	// Constructor that takes radians
 	AngleRadians(double radians) : Angle()
 	{
@@ -214,17 +207,30 @@ public:
 	{
 		out << std::fixed << std::setprecision(2) << getRadians() << " radians";
 	}
-	virtual Angle& operator++() override
+	virtual AngleRadians& operator++() override
 	{
 		double newRads = getRadians() + (M_PI / 8);
-		setRadians(newRads);
+		setRadians((*this).normalize(newRads));
 		return *this;
 	}
-	virtual Angle& operator--() override
+	virtual AngleRadians& operator++(int postfix) override
+	{
+		double newRads = getRadians() + (M_PI / 8);
+		setRadians((*this).normalize(newRads));
+		return *this;
+	}
+	virtual AngleRadians& operator--() override
 	{
 		double newRads = getRadians() - (M_PI / 8);
-		setRadians(newRads);
+		setRadians((*this).normalize(newRads));
 		return *this;
 	}
+	virtual AngleRadians& operator--(int postfix) override
+	{
+		double newRads = getRadians() - (M_PI / 8);
+		setRadians((*this).normalize(newRads));
+		return *this;
+	}
+
 };
 
