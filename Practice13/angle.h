@@ -152,25 +152,73 @@ public:
 	virtual void display(std::ostream& out) const
 	{
 
-		out << std::fixed << std::setprecision(1) << convertToDegrees(radians) << "degrees";
+		out << std::fixed << std::setprecision(1) << convertToDegrees(radians);
 	};
 
 	virtual Angle & operator++()
 	{
 		radians = normalize(radians + (M_PI / 180));
+		return *this;
 	}
 	virtual Angle & operator++(int postfix)
 	{
 		radians = normalize(radians + (M_PI / 180));
+		return *this;
 	}
 
 	virtual Angle& operator--()
 	{
 		radians = normalize(radians - (M_PI / 180));
+		return *this;
 	}
 	virtual Angle & operator--(int postfix)
 	{
 		radians = normalize(radians - (M_PI / 180));
+		return *this;
+	}
+	Angle& operator= (const Angle& rhs)
+	{
+		radians = rhs.radians;
+		return *this;
+	}
+	Angle& operator= (double rhs)
+	{
+		radians = rhs;
+		return *this;
+	}
+	inline friend bool operator==(const Angle& lhs, const Angle& rhs)
+	{
+		return lhs.radians == rhs.radians;
+	}
+	inline friend bool operator!=(const Angle& lhs, const Angle& rhs)
+	{
+		return lhs.radians != rhs.radians;
+	}
+
+	//Negative (This should work like the prefix increment operator)
+	inline friend Angle operator-(const Angle& rhs)
+	{
+		Angle angle;
+		angle.setRadians(M_PI * 2 - rhs.radians);
+		return angle;
+	}
+
+	//Insertion
+	inline friend ostream& operator<<(ostream& out, const Angle& rhs)
+	{
+		out << std::fixed << std::setprecision(1) << rhs.getDegrees();
+		return out;
+	}
+
+	//Extraction
+	inline friend istream& operator>>(istream& in, Angle& rhs)
+	{
+		double temp;
+		if (in >> temp)             // only succeeds if in can pass a double into a temp variable
+		{
+			rhs.radians = rhs.convertToRadians(temp);
+		}
+		return in;
 	}
 
 	double normalize(double angle) const
@@ -205,7 +253,7 @@ public:
 	// Override display method to show radians
 	virtual void display(std::ostream& out) const override
 	{
-		out << std::fixed << std::setprecision(2) << getRadians() << " radians";
+		out << std::fixed << std::setprecision(2) << getRadians() << "radians";
 	}
 	virtual AngleRadians& operator++() override
 	{
