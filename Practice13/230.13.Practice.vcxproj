@@ -140,11 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="angle.cpp" />
-    <ClCompile Include="AngleRadians.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="angle.h" />
-    <ClInclude Include="AngleRadians.h" />
     <ClInclude Include="testAngleRadians.h" />
     <ClInclude Include="unitTest.h" />
   </ItemGroup>

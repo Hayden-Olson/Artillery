@@ -24,15 +24,9 @@
     <ClInclude Include="testAngleRadians.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AngleRadians.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="angle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AngleRadians.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -196,6 +196,35 @@ private:
 		return angle;
 	};
 
-
 	double radians;   // 360 degrees equals 2 PI radians
 };
+/************************************
+ * ANGLE RADIANS
+ ************************************/
+class AngleRadians : public Angle
+{
+public:
+	// Constructor that takes radians
+	AngleRadians(double radians) : Angle()
+	{
+		setRadians(radians);
+	}
+	// Override display method to show radians
+	virtual void display(std::ostream& out) const override
+	{
+		out << std::fixed << std::setprecision(2) << getRadians() << " radians";
+	}
+	virtual Angle& operator++() override
+	{
+		double newRads = getRadians() + (M_PI / 8);
+		setRadians(newRads);
+		return *this;
+	}
+	virtual Angle& operator--() override
+	{
+		double newRads = getRadians() - (M_PI / 8);
+		setRadians(newRads);
+		return *this;
+	}
+};
+
