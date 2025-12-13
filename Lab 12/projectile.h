@@ -57,7 +57,7 @@ public:
            double mach = pSpeed / speedOfSound;
 
            double drag = dragFromMach(mach);
-           double forceX = forceFromDrag(airDensity, drag, radius, pVelocityX);
+           double forceX = forceFromDrag(airDensity, -drag, radius, pVelocityX);
            double forceY = forceFromDrag(airDensity, drag, radius, pVelocityY);
 
            //something is going wrong before here. acceleration for both is off, but I'm unsure what that might be from.
