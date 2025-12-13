@@ -9,6 +9,11 @@
 
 #pragma once
 #include "position.h"
+#include "uiInteract.h"  
+#include "uiDraw.h"      
+#include "ground.h"
+#include "howitzer.h"
+
 
 
  /*********************************************
@@ -18,6 +23,12 @@
 class Simulator
 {
 public:
-   Simulator(const Position & posUpperRight) {}
+   Simulator(const Position & posUpperRight) : ground(posUpperRight), howitzer() {}
 
+   void display(ogstream & gout);
+
+   Howitzer howitzer;
+   Ground ground;
 };
+
+
